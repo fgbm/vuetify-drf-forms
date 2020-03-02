@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fgbm/vuetify_drf_forms.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
