@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import {state, getters, actions, mutations} from '@/store/vuetify_drf_forms';
+import {state, getters, actions, mutations} from '@/store/vuetify-drf-forms';
 
 Vue.use(Vuex);
 
