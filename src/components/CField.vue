@@ -5,7 +5,7 @@
   </div>
 </template>
 <script>
-  import {mapGetters, mapMutations, mapState} from 'vuex';
+  import {mapGetters, mapMutations} from 'vuex';
 
   export default {
     name: 'CField',
@@ -32,22 +32,18 @@
       }
     },
     computed: {
-      ...mapGetters('vuetify_drf_forms', [
-        'getVuetifyField'
-      ]),
-      ...mapState('vuetify_drf_forms', {
-        record: function(state) {
-          return state[this.endpoint].record;
-        },
-        options: function(state) {
-          return state[this.endpoint].options;
-        }
-      }),
+      ...mapGetters('vietify-drf-forms', ['getVuetifyField', 'getRecord', 'isSuccess', 'getOptions']),
       isHidden() {
         return this.hiddenIfEmpty === true &&
-            (!Object.hasOwnProperty.call(this.record, this.field) || this.record[this.field] === null);
+          (!Object.hasOwnProperty.call(this.record, this.field) || this.record[this.field] === null);
+      },
+      record() {
+        return this.getRecord(this.endpoint);
+      },
+      options(){
+        return this.getOptions(this.endpoint);
       }
     },
-    methods: mapMutations('vuetify_drf_forms', ['setRecordField'])
+    methods: mapMutations('vietify-drf-forms', ['setRecordField'])
   };
 </script>

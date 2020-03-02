@@ -15,7 +15,7 @@
 
 <!--suppress NpmUsedModulesInstalled -->
 <script>
-  import CField from '@/components/CField';
+  import CField from './CField';
 
   export default {
     name: 'CSelect',

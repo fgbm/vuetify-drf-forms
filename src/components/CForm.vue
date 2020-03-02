@@ -27,14 +27,15 @@
       endpoint: String
     }),
     computed: {
-      ...mapGetters('vuetify_drf_forms', [
+      ...mapGetters('vietify-drf-forms', [
         'getVuetifyField'
       ]),
-      ...mapState('vuetify_drf_forms', {
+      ...mapState('vietify-drf-forms', {
         record: state => state[this.endpoint].record
       })
     },
     created() {
+      console.log('Try call defaults');
       this.defaults(this.endpoint);
       if (this.id > 0) {
         // noinspection JSValidateTypes
@@ -47,13 +48,8 @@
       }
     },
     methods: {
-      ...mapMutations('vuetify_drf_forms', [
-        'setRecordField'
-      ]),
-      ...mapActions('vuetify_drf_forms', [
-        'fetchRecordById',
-        'defaults'
-      ])
+      ...mapMutations('vietify-drf-forms', ['setRecordField']),
+      ...mapActions('vietify-drf-forms', ['fetchRecordById', 'defaults'])
     }
   };
 </script>

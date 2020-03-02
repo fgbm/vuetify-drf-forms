@@ -37,7 +37,7 @@
 
 <!--suppress NpmUsedModulesInstalled -->
 <script>
-  import CField from '@/components/CField';
+  import CField from './CField';
   import DatetimePicker from 'vuetify-datetime-picker';
   import {mdiCalendar} from '@mdi/js';
 

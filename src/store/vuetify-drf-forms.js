@@ -1,12 +1,8 @@
 import Vue from 'vue';
 
-export const state = () => ({
-  /*
-  * Объекты, содержащие словари:
-  *   endpoint : { record: {}, errors: [], options: {} }
-  *
-  */
-});
+const state = () => {
+  return {};
+};
 
 function checkEndpoint(state, endpoint) {
   if (!(endpoint in state)) {
@@ -14,7 +10,7 @@ function checkEndpoint(state, endpoint) {
   }
 }
 
-export const mutations = {
+const mutations = {
   setRecordField(state, {endpoint, field, value}) {
     checkEndpoint(state, endpoint);
     if ('record' in state[endpoint]) {
@@ -75,7 +71,7 @@ export const mutations = {
   }
 };
 
-export const getters = {
+const getters = {
   getVuetifyField: (state) => ({endpoint, field}) => {
     let props = {};
     if (endpoint in state && 'errors' in state[endpoint] && 'options' in state[endpoint]) {
@@ -128,6 +124,14 @@ export const getters = {
       return null;
     }
   },
+  getOptions: (state) => (endpoint) => {
+    if (endpoint in state) {
+      if (!('options' in state[endpoint])) state[endpoint].options = {};
+      return state[endpoint].options;
+    } else {
+      return {};
+    }
+  },
   isSuccess: (state) => (endpoint) => {
     if (endpoint in state && 'success' in state[endpoint]) {
       return state[endpoint].success;
@@ -137,7 +141,7 @@ export const getters = {
   }
 };
 
-export const actions = {
+const actions = {
   fetchRecordById({commit}, {endpoint, id}) {
     this.$axios.get(`${endpoint}${id}/`).then((json) => {
       commit('setRecord', {endpoint, record: json.data});
@@ -194,4 +198,12 @@ export const actions = {
     dispatch('fetchCreateOptions', endpoint);
     commit('setNotSuccess', endpoint);
   }
+};
+
+export default {
+  namespaced: true,
+  state,
+  getters,
+  actions,
+  mutations
 };
