@@ -1,6 +1,6 @@
 <!--suppress NpmUsedModulesInstalled -->
 <script>
-  import {mapState, mapMutations, mapGetters, mapActions} from 'vuex';
+  import {mapMutations, mapGetters, mapActions} from 'vuex';
 
   // noinspection JSUnusedGlobalSymbols
   export default {
@@ -27,16 +27,17 @@
       endpoint: String
     }),
     computed: {
-      ...mapGetters('vietify-drf-forms', [
-        'getVuetifyField'
-      ]),
-      ...mapState('vietify-drf-forms', {
-        record: state => state[this.endpoint].record
-      })
+      ...mapGetters('vietify-drf-forms', ['getVuetifyField', 'getRecord', 'isSuccess']),
+      record() {
+        return this.getRecord(this.endpoint);
+      },
+      success() {
+        return this.isSuccess(this.endpoint);
+      }
     },
     created() {
-      console.log('Try call defaults');
       this.defaults(this.endpoint);
+
       if (this.id > 0) {
         // noinspection JSValidateTypes
         this.fetchRecordById({endpoint: this.endpoint, id: this.id});
