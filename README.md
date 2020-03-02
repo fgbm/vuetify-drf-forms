@@ -1,24 +1,35 @@
 # vuetify_drf_forms
 
-## Project setup
-```
-npm install
+### plugins/vuetify_drf_forms.js
+```javascript
+import Vue from 'vue';
+import VuetifyDRF from 'vuetify-drf-forms';
+
+export default ({store}) => {
+  Vue.use(VuetifyDRF, {store});
+};
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+### nuxt.config.js
+```javascript
+...
+plugins: [
+  ...
+  {src: '~plugins/vuetify_drf_forms', mode: 'client'}
+],
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Использование формы
+```javascript
+import CForm from 'vuetify-drf-forms/src/components/CForm.vue';
+const endpoint = 'API ENDPOINT';
+export default {
+  mixins: [CForm],
+  data() {
+    return {
+      endpoint,
+      ...
+    }
+  ...
+}
+```
