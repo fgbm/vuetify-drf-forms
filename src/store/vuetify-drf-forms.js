@@ -10,6 +10,7 @@ function checkEndpoint(state, endpoint) {
   }
 }
 
+// noinspection JSUnusedGlobalSymbols
 const mutations = {
   setRecordField(state, {endpoint, field, value}) {
     checkEndpoint(state, endpoint);
@@ -71,6 +72,7 @@ const mutations = {
   }
 };
 
+// noinspection JSUnusedGlobalSymbols
 const getters = {
   getVuetifyField: (state) => ({endpoint, field}) => {
     let props = {};
@@ -141,6 +143,7 @@ const getters = {
   }
 };
 
+// noinspection JSUnusedGlobalSymbols
 const actions = {
   fetchRecordById({commit}, {endpoint, id}) {
     this.$axios.get(`${endpoint}${id}/`).then((json) => {

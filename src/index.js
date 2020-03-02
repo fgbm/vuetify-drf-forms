@@ -1,5 +1,5 @@
 import Vuex from 'vuex';
-import vietify_drf_forms_store from './plugins/vuex';
+import vietify_drf_forms_store from './store/vuetify-drf-forms';
 
 import CForm from './components/CForm';
 import CField from './components/CField';
@@ -23,7 +23,7 @@ const install = (Vue, options = {}) => {
   let {store} = options;
   if (store) {
     // если передали store - регистрируем в нем свой модуль
-    store.registerModule(PLUGIN_NAME, vietify_drf_forms_store);
+    store.registerModule(PLUGIN_NAME, vietify_drf_forms_store, {preserveState: false});
   } else {
     // не передали, для начала проверим, установлен ли Vuex в Vue
     if (!new Vue({store: {}}).$store) {
