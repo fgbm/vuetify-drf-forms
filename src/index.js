@@ -5,6 +5,7 @@ import CForm from './components/CForm';
 import CField from './components/CField';
 import CCheckbox from './components/CCheckbox';
 import CDatePicker from './components/CDatePicker';
+import CDateTimePicker from './components/CDateTimePicker';
 import CSelect from './components/CSelect';
 import CTextarea from './components/CTextarea';
 import CTextField from './components/CTextField';
@@ -16,6 +17,7 @@ const install = (Vue, options = {}) => {
   Vue.component('c-field', CField);
   Vue.component('c-checkbox', CCheckbox);
   Vue.component('c-date-picker', CDatePicker);
+  Vue.component('c-date-time-picker', CDateTimePicker);
   Vue.component('c-select', CSelect);
   Vue.component('c-textarea', CTextarea);
   Vue.component('c-text-field', CTextField);
