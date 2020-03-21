@@ -1,5 +1,5 @@
 import Vuex from 'vuex';
-import vietify_drf_forms_store from './store/vuetify-drf-forms';
+import vietify_drf_forms_store from './store/index';
 
 import CForm from './components/CForm';
 import CField from './components/CField';

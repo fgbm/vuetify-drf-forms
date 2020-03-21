@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import DRFStore from '../store/vuetify-drf-forms';
+import DRFStore from '../store/index';
 
 Vue.use(Vuex);
 
