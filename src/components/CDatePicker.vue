@@ -24,6 +24,7 @@
             :value="record[field]"
             min="1950-01-01"
             v-bind="datePickerProps"
+            :first-day-of-week="1"
             @input="setDate"
     />
   </v-menu>
