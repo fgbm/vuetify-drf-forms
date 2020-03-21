@@ -4,6 +4,7 @@
           :disabled="disabled || (field in options && options[field].read_only)"
           :readonly="readonly"
           :value="record[field]"
+          :indeterminate="record[field] === null"
           v-bind="{...getVuetifyField({endpoint, field}), ...checkboxProps}"
           @change="setRecordField({endpoint, field, value: $event === true})"
   />
