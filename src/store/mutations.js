@@ -31,6 +31,7 @@ const mutations = {
   cleanRecord(state, endpoint) {
     checkEndpoint(state, endpoint);
     state[endpoint] = {
+      ...state[endpoint],
       record: {},
       errors: {},
       options: {}
