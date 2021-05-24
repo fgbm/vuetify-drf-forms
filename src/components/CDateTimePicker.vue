@@ -3,7 +3,7 @@
   <v-datetime-picker
           :disabled="disabled || (field in options && options[field].read_only)"
           :readonly="readonly"
-          :value="record[field]"
+          :datetime="record[field]"
           :date-picker-props="{':first-day-of-week': 1}"
           clear-text="Очистить"
           ok-text="Применить"
